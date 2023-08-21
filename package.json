@@ -4,18 +4,30 @@
   "type": "module",
   "author": "James Kienle (https://www.jameskienle.com)",
   "license": "MIT",
+  "prettier": "./packages/config/prettier/.prettierrc.js",
   "scripts": {
     "clean": "turbo clean",
-    "postinstall": "manypkg check",
-    "reset": "turbo reset && rm -r node_modules && pnpm i"
+    "postinstall": "manypkg check && pnpm exec simple-git-hooks",
+    "reset": "turbo reset && rm -r node_modules && pnpm i",
+    "styles:format": "prettier --ignore-unknown --write .",
+    "styles:lint": "prettier --ignore-unknown --check ."
   },
   "engines": {
     "node": ">=20.5.1",
     "pnpm": ">=8.6.12"
   },
   "packageManager": "pnpm@8.6.12",
+  "simple-git-hooks": {
+    "pre-commit": "pnpm exec lint-staged"
+  },
+  "lint-staged": {
+    "*": "prettier --ignore-unknown --write"
+  },
   "dependencies": {
     "@manypkg/cli": "^0.21.0",
+    "lint-staged": "^14.0.1",
+    "prettier": "3.0.2",
+    "simple-git-hooks": "^2.9.0",
     "turbo": "^1.10.12"
   }
 }

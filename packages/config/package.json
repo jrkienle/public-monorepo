@@ -1,0 +1,24 @@
+{
+  "name": "@jrkienle/config",
+  "version": "0.1.0",
+  "description": "",
+  "type": "module",
+  "author": "James Kienle (https://www.jameskienle.com)",
+  "license": "MIT",
+  "keywords": [
+    "jrkienle",
+    "prettierrc"
+  ],
+  "files": [
+    "prettier/**"
+  ],
+  "scripts": {
+    "reset": "rm -r node_modules"
+  },
+  "devDependencies": {
+    "prettier": "3.0.2"
+  },
+  "peerDependencies": {
+    "prettier": "3.0.2"
+  }
+}

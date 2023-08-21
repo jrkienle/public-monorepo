@@ -1,0 +1,59 @@
+version: 2.1
+commands:
+  # TODO: Is there a better way to do this? My first instinct is to create a specialized docker
+  # image with my preferred version of Node and PNPM and then persist deps, but I'm not sure if
+  # that's the best move. All I know is that this is slow as fuck
+  setup-deps:
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore PNPM Cache
+          keys:
+            - pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
+      - run:
+          name: Install PNPM
+          command: |
+            corepack enable
+            corepack prepare pnpm@latest-8 --activate
+      - run:
+          name: Install Dependencies and Check Package Versions
+          command: |
+            pnpm install
+jobs:
+  setup:
+    docker:
+      - image: node:20
+    steps:
+      - setup-deps
+      # TODO: Add build command with workspace persistence
+      # - run:
+      #     name: Build all Packages
+      #     command: |
+      #       pnpm run build
+      # -  persist_to_workspace:
+      #     root: .
+      #     paths:
+      #       - '**/dist'
+      - save_cache:
+          name: Save PNPM Cache
+          key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
+          paths:
+            - node_modules
+  lint-styles:
+    docker:
+      - image: node:20
+    steps:
+      - setup-deps
+      - attach_workspace:
+          at: .
+      - run:
+          name: Lint Styles
+          command: |
+            pnpm run styles:lint
+workflows:
+  build-test-deploy:
+    jobs:
+      - setup
+      - lint-styles:
+          requires:
+            - setup
