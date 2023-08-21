@@ -50,10 +50,10 @@ defer to their individual READMEs for any applicable information there.
 
 The following global commands are available for your usage:
 
-* `clean` - Deletes all build artifacts, caches, and test results
-* `postinstall` - Automatically runs `manypkg check` post node module installation to ensure
+- `clean` - Deletes all build artifacts, caches, and test results
+- `postinstall` - Automatically runs `manypkg check` post node module installation to ensure
   dependencies use consistent versions across all apps, packages, and services
-* `reset` - Runs clean and additionally removes all `node_modules`, completely resetting the repo
+- `reset` - Runs clean and additionally removes all `node_modules`, completely resetting the repo
 
 ## The CI Pipeline
 
@@ -62,7 +62,7 @@ The following global commands are available for your usage:
 ## Third Party Software
 
 > TODO: Come up with a list of every piece of third party SAAS this app uses and detail exactly where
-  it's being used and why
+> it's being used and why
 
 ## Monorepo Contents
 
@@ -71,18 +71,18 @@ a short description and startup commands for each of them.
 
 ### Apps
 
-| Name   | Description | Port   | Startup Command |
-| ------ | ----------- | ------ | --------------- |
-| TODO   | Todo        | `3000` | `todo`          |
+| Name | Description | Port   | Startup Command |
+| ---- | ----------- | ------ | --------------- |
+| TODO | Todo        | `3000` | `todo`          |
 
 ### Packages
 
-| Name   | Description |
-| ------ | ----------- |
-| TODO   | Todo        |
+| Name | Description |
+| ---- | ----------- |
+| TODO | Todo        |
 
 ### Services
 
-| Name   | Description | Port   | Startup Command |
-| ------ | ----------- | ------ | --------------- |
-| TODO   | Todo        | `8000` | `todo`          |
+| Name | Description | Port   | Startup Command |
+| ---- | ----------- | ------ | --------------- |
+| TODO | Todo        | `8000` | `todo`          |
