@@ -78,3 +78,20 @@ In your `tsconfig.json`, add the following line:
 
 **Note:** `base-tsconfig.json` can be replaced with any of the other available configuration file
 names exported in this package
+
+### Vitest
+
+There are 2 Vitest configs to standardize testing between every app, package, and service in the
+monorepo. The following Vitest configs are available:
+
+- `./vitest/base-vitest.json` - Common Vitest Config that **every** project must use
+- `./vitest/react-vitest.json` - React TypeScript rules based off of the `base` rules
+
+### Usage
+
+In your `vitest.config.js`, add the following lines:
+
+```javascript
+import vitestConfig from '@jrkienle/config/vitest/react-vitest.js';
+export default vitestConfig;
+```

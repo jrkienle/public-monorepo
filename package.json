@@ -13,7 +13,8 @@
     "postinstall": "manypkg check && pnpm exec simple-git-hooks",
     "reset": "turbo reset && rm -r node_modules && pnpm i",
     "styles:format": "prettier --ignore-unknown --write .",
-    "styles:lint": "prettier --ignore-unknown --check ."
+    "styles:lint": "prettier --ignore-unknown --check .",
+    "test": "turbo test"
   },
   "engines": {
     "node": ">=20.5.1",

@@ -61,6 +61,7 @@ The following global commands are available for your usage:
 - `reset` - Runs clean and additionally removes all `node_modules`, completely resetting the repo
 - `styles:format` - Runs Prettier on every file in the repo
 - `styles:lint` - Ensures that Prettier has been ran on every file in the repo, throws if not
+- `test` - Runs Vitest on all apps, packages, and services
 
 ## The CI Pipeline
 

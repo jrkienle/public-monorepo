@@ -17,6 +17,11 @@
     "reset": {
       "dependsOn": ["^clean"],
       "cache": false
+    },
+    "test": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "outputs": ["test-results/**"]
     }
   }
 }
