@@ -7,18 +7,36 @@
   "license": "MIT",
   "keywords": [
     "jrkienle",
-    "prettierrc"
+    "prettierrc",
+    "tsconfig"
   ],
   "files": [
-    "prettier/**"
+    "prettier/**",
+    "typescript/**"
   ],
   "scripts": {
     "reset": "rm -r node_modules"
   },
   "devDependencies": {
-    "prettier": "3.0.2"
+    "next": "^13.4.19",
+    "prettier": "3.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "typescript": "^5.1.6"
   },
   "peerDependencies": {
-    "prettier": "3.0.2"
+    "prettier": "3.0.2",
+    "typescript": ">= 5.1.6 < 6"
+  },
+  "peerDependenciesMeta": {
+    "next": {
+      "optional": true
+    },
+    "react": {
+      "optional": true
+    },
+    "react-dom": {
+      "optional": true
+    }
   }
 }

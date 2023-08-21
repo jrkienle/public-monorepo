@@ -33,3 +33,12 @@ In your `.prettierrc.js`, add the following lines
 import prettierConfig from '@jrkienle/config/prettier/.prettierrc.js';
 export default prettierConfig;
 ```
+
+### TypeScript
+
+I have 3 TypeScript configs to standardize type checking between every app, package, and service
+in the monorepo. The following TSConfigs are available
+
+- `./typescript/base-tsconfig.json` - Common TypeScript rules that **every** project must use
+- `./typescript/nextjs-tsconfig.json` - Next.js TypeScript rules based off of the `react` rules
+- `./typescript/react-tsconfig.json` - React TypeScript rules based off of the `base` rules

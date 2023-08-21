@@ -23,6 +23,11 @@
   "lint-staged": {
     "*": "prettier --ignore-unknown --write"
   },
+  "manypkg": {
+    "ignoredRules": [
+      "INTERNAL_MISMATCH"
+    ]
+  },
   "dependencies": {
     "@manypkg/cli": "^0.21.0",
     "lint-staged": "^14.0.1",
