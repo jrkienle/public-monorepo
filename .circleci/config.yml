@@ -29,7 +29,7 @@ jobs:
       # - run:
       #     name: Build all Packages
       #     command: |
-      #       pnpm run build
+      #       pnpm run build:packages
       # -  persist_to_workspace:
       #     root: .
       #     paths:
@@ -39,6 +39,17 @@ jobs:
           key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - node_modules
+  lint:
+    docker:
+      - image: node:20
+    steps:
+      - setup-deps
+      - attach_workspace:
+          at: .
+      - run:
+          name: Lint
+          command: |
+            pnpm run lint
   lint-styles:
     docker:
       - image: node:20
@@ -50,10 +61,27 @@ jobs:
           name: Lint Styles
           command: |
             pnpm run styles:lint
+  test:
+    docker:
+      - image: node:20
+    steps:
+      - setup-deps
+      - attach_workspace:
+          at: .
+      - run:
+          name: Test
+          command: |
+            pnpm run test
 workflows:
   build-test-deploy:
     jobs:
       - setup
+      - lint:
+          requires:
+            - setup
       - lint-styles:
+          requires:
+            - setup
+      - test:
           requires:
             - setup
