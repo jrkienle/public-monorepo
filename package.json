@@ -1,0 +1,14 @@
+{
+  "name": "@jrkienle/public-monorepo",
+  "private": "true",
+  "type": "module",
+  "author": "James Kienle (https://www.jameskienle.com)",
+  "license": "MIT",
+  "scripts": {},
+  "engines": {
+    "node": ">=20.5.1",
+    "pnpm": ">=8.6.12"
+   },
+   "packageManager": "pnpm@8.6.12",
+   "devDependencies": {}
+}
