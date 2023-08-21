@@ -1,9 +1,15 @@
 # Dependencies
 node_modules
 
+# ESLint Output
+.eslintcache
+
 # Next.js
 .next
 next-env.d.ts
 
 # OS Files
 .DS_Store
+
+# Turborepo Output
+.turbo

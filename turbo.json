@@ -1,8 +1,18 @@
 {
   "$schema": "https://turbo.build/schema.json",
   "pipeline": {
+    "build": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "outputs": ["dist/**"]
+    },
     "clean": {
       "cache": false
+    },
+    "lint": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "outputs": [".eslintcache"]
     },
     "reset": {
       "dependsOn": ["^clean"],

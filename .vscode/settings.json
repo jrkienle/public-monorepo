@@ -1,0 +1,23 @@
+{
+  "editor.formatOnSave": true,
+  "editor.rulers": [100],
+  "editor.tabSize": 2,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.workingDirectories": [
+    {
+      "pattern": "apps/*",
+      "changeProcessCWD": true
+    },
+    {
+      "pattern": "packages/*",
+      "changeProcessCWD": true
+    },
+    {
+      "pattern": "services/*",
+      "changeProcessCWD": true
+    }
+  ]
+}

@@ -6,12 +6,14 @@
   "author": "James Kienle (https://www.jameskienle.com)",
   "license": "MIT",
   "keywords": [
+    "eslintrc",
     "jrkienle",
     "nextjs",
     "prettierrc",
     "tsconfig"
   ],
   "files": [
+    "eslint/**",
     "nextjs/**",
     "prettier/**",
     "typescript/**"
@@ -19,7 +21,21 @@
   "scripts": {
     "reset": "rm -r node_modules"
   },
+  "dependencies": {
+    "@next/eslint-plugin-next": "^13.4.19",
+    "@typescript-eslint/eslint-plugin": "^6.4.1",
+    "@typescript-eslint/parser": "^6.4.1",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-typescript": "^17.1.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-jsx-a11y": "^6.7.1",
+    "eslint-plugin-react": "^7.33.2",
+    "eslint-plugin-react-hooks": "^4.6.0"
+  },
   "devDependencies": {
+    "eslint": "^8.47.0",
     "next": "^13.4.19",
     "prettier": "3.0.2",
     "react": "^18.2.0",
@@ -27,6 +43,7 @@
     "typescript": "^5.1.6"
   },
   "peerDependencies": {
+    "eslint": ">= 8.47.0 < 9",
     "prettier": "3.0.2",
     "typescript": ">= 5.1.6 < 6"
   },

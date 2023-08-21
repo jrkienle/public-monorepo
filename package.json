@@ -1,12 +1,15 @@
 {
   "name": "@jrkienle/public-monorepo",
-  "private": "true",
+  "private": true,
   "type": "module",
   "author": "James Kienle (https://www.jameskienle.com)",
   "license": "MIT",
   "prettier": "./packages/config/prettier/.prettierrc.js",
   "scripts": {
+    "build": "turbo build",
+    "build:packages": "turbo run build --filter=./packages/*",
     "clean": "turbo clean",
+    "lint": "turbo lint",
     "postinstall": "manypkg check && pnpm exec simple-git-hooks",
     "reset": "turbo reset && rm -r node_modules && pnpm i",
     "styles:format": "prettier --ignore-unknown --write .",

@@ -10,6 +10,29 @@ pnpm i @jrkienle/config -D
 
 ## Available Configurations
 
+### ESLint
+
+There are 3 ESLint configs to standardize linting between every app, package, and service in the
+monorepo. The following ESLint configs are available:
+
+`./eslint/base-eslintrc.cjs` - Used for anything that's not React-based
+`./eslint/nextjs-eslintrc.cjs` - Used for any Next.js apps
+`./eslint/react-eslintrc.cjs` - Used for any non-Next.js React apps
+
+### Next.js
+
+The Next.js config is used to standardize the configuration of all Next.js apps in the monorepo.
+This config can be found at `./next/next.config.js`
+
+#### Usage
+
+If your `next.config.js` file, add the following lines:
+
+```javascript
+import nextConfig from '@jrkienle/config/next/next.config.js';
+export default nextConfig;
+```
+
 ### Prettier
 
 The Prettier config is used to standardize all of the styles between every file in the monorepo.
@@ -36,8 +59,8 @@ export default prettierConfig;
 
 ### TypeScript
 
-I have 3 TypeScript configs to standardize type checking between every app, package, and service
-in the monorepo. The following TSConfigs are available
+There are 3 TypeScript configs to standardize type checking between every app, package, and service
+in the monorepo. The following TSConfigs are available:
 
 - `./typescript/base-tsconfig.json` - Common TypeScript rules that **every** project must use
 - `./typescript/nextjs-tsconfig.json` - Next.js TypeScript rules based off of the `react` rules

@@ -39,7 +39,7 @@ everything in here.
 
 1. Download and Install [NVM](https://github.com/nvm-sh/nvm)
 1. Download and Install [Docker Desktop](https://www.docker.com/products/docker-desktop/)
-   (Required for most apps and Servers)
+   (Required for most apps and services)
 1. Clone the repo and CD into it
 1. Run `nvm install` and `nvm use` to ensure you're on the correct version of node
 1. Download and Install [PNPM](https://pnpm.io/)
@@ -52,7 +52,10 @@ defer to their individual READMEs for any applicable information there.
 
 The following global commands are available for your usage:
 
+- `build` - Builds all apps, packages, and services
+- `build:packages` - Builds only packages, often used in CI to handle dependencies
 - `clean` - Deletes all build artifacts, caches, and test results
+- `lint` - Runs ESLint on all apps, packages, and services
 - `postinstall` - Automatically runs `manypkg check` post node module installation to ensure
   dependencies use consistent versions across all apps, packages, and services
 - `reset` - Runs clean and additionally removes all `node_modules`, completely resetting the repo
