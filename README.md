@@ -1,5 +1,7 @@
 # Public Monorepo
 
+[![CircleCI](https://dl.circleci.com/status-badge/img/gh/jrkienle/public-monorepo/tree/main.svg?style=shield)](https://dl.circleci.com/status-badge/redirect/gh/jrkienle/public-monorepo/tree/main)
+
 A monorepo for all of my open source software
 
 ## Introduction
@@ -54,6 +56,8 @@ The following global commands are available for your usage:
 - `postinstall` - Automatically runs `manypkg check` post node module installation to ensure
   dependencies use consistent versions across all apps, packages, and services
 - `reset` - Runs clean and additionally removes all `node_modules`, completely resetting the repo
+- `styles:format` - Runs Prettier on every file in the repo
+- `styles:lint` - Ensures that Prettier has been ran on every file in the repo, throws if not
 
 ## The CI Pipeline
 
@@ -77,9 +81,9 @@ a short description and startup commands for each of them.
 
 ### Packages
 
-| Name | Description |
-| ---- | ----------- |
-| TODO | Todo        |
+| Name               | Description                                                         |
+| ------------------ | ------------------------------------------------------------------- |
+| `@jrkienle/config` | Shared configuration files between all of the `@jrkienle`` monorepo |
 
 ### Services
 

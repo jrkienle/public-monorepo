@@ -1,6 +1,6 @@
 # `@jrkienle/config`
 
-> Shared configuration files between all of the `@jrkienle` monorepo
+Shared configuration files between all of the `@jrkienle` monorepo
 
 ## Installation
 

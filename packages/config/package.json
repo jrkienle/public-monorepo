@@ -1,7 +1,7 @@
 {
   "name": "@jrkienle/config",
   "version": "0.1.0",
-  "description": "",
+  "description": "Shared configuration files between all of the @jrkienle monorepo",
   "type": "module",
   "author": "James Kienle (https://www.jameskienle.com)",
   "license": "MIT",
