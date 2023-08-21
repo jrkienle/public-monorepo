@@ -1,5 +1,9 @@
 # Dependencies
 node_modules
 
+# Next.js
+.next
+next-env.d.ts
+
 # OS Files
 .DS_Store

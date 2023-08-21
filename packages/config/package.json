@@ -7,10 +7,12 @@
   "license": "MIT",
   "keywords": [
     "jrkienle",
+    "nextjs",
     "prettierrc",
     "tsconfig"
   ],
   "files": [
+    "nextjs/**",
     "prettier/**",
     "typescript/**"
   ],
