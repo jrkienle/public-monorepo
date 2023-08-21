@@ -6,12 +6,16 @@
   "license": "MIT",
   "scripts": {
     "clean": "turbo clean",
+    "postinstall": "manypkg check",
     "reset": "turbo reset && rm -r node_modules && pnpm i"
   },
   "engines": {
     "node": ">=20.5.1",
     "pnpm": ">=8.6.12"
-   },
-   "packageManager": "pnpm@8.6.12",
-   "devDependencies": {}
+  },
+  "packageManager": "pnpm@8.6.12",
+  "dependencies": {
+    "@manypkg/cli": "^0.21.0",
+    "turbo": "^1.10.12"
+  }
 }

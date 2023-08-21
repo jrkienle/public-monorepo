@@ -48,9 +48,11 @@ defer to their individual READMEs for any applicable information there.
 
 ## Global Commands
 
-The following global commands are available for your usage
+The following global commands are available for your usage:
 
 * `clean` - Deletes all build artifacts, caches, and test results
+* `postinstall` - Automatically runs `manypkg check` post node module installation to ensure
+  dependencies use consistent versions across all apps, packages, and services
 * `reset` - Runs clean and additionally removes all `node_modules`, completely resetting the repo
 
 ## The CI Pipeline
