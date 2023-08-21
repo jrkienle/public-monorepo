@@ -4,7 +4,10 @@
   "type": "module",
   "author": "James Kienle (https://www.jameskienle.com)",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "clean": "turbo clean",
+    "reset": "turbo reset && rm -r node_modules && pnpm i"
+  },
   "engines": {
     "node": ">=20.5.1",
     "pnpm": ">=8.6.12"

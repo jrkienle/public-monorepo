@@ -46,6 +46,13 @@ everything in here.
 Note that individual apps and services will very likely have their own setup instructions. Please
 defer to their individual READMEs for any applicable information there.
 
+## Global Commands
+
+The following global commands are available for your usage
+
+* `clean` - Deletes all build artifacts, caches, and test results
+* `reset` - Runs clean and additionally removes all `node_modules`, completely resetting the repo
+
 ## The CI Pipeline
 
 > TODO: Come up with a CI workflow and document each step as well as why each step is needed
