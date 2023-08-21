@@ -39,6 +39,17 @@ jobs:
           key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - node_modules
+  build-apps-and-servers:
+    docker:
+      - image: node:20
+    steps:
+      - setup-deps
+      - attach_workspace:
+          at: .
+      - run:
+          name: Build Apps and Servers
+          command: |
+            pnpm run build
   lint:
     docker:
       - image: node:20
@@ -76,6 +87,9 @@ workflows:
   build-test-deploy:
     jobs:
       - setup
+      - build-apps-and-servers:
+          requires:
+            - setup
       - lint:
           requires:
             - setup
