@@ -1,4 +1,4 @@
-# `@jrkienle/config`
+# Config
 
 Shared configuration files between all of the `@jrkienle` monorepo
 
@@ -56,6 +56,14 @@ In your `.prettierrc.js`, add the following lines:
 import prettierConfig from '@jrkienle/config/prettier/.prettierrc.js';
 export default prettierConfig;
 ```
+
+### Tsup
+
+There are two Tsup configs to standardize how we bundle packages between every package in the
+monorepo. The following Tsup configs are available:
+
+- `./tsup/base-tsup.js` - Tsup config for all non-React packages
+- `./tsup/react-tsup.js` - Tsup config for all React packages
 
 ### TypeScript
 
