@@ -11,5 +11,12 @@ next-env.d.ts
 # OS Files
 .DS_Store
 
+# Test Output
+coverage
+test-results
+
+# Tsup Output
+dist
+
 # Turborepo Output
 .turbo
