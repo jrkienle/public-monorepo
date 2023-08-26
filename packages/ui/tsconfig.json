@@ -1,0 +1,8 @@
+{
+  "extends": "@jrkienle/config/typescript/react-tsconfig.json",
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
+  "compilerOptions": {
+    "baseUrl": "./src"
+  }
+}

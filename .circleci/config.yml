@@ -25,15 +25,15 @@ jobs:
       - image: node:20
     steps:
       - setup-deps
-      # TODO: Add build command with workspace persistence
-      # - run:
-      #     name: Build all Packages
-      #     command: |
-      #       pnpm run build:packages
-      # -  persist_to_workspace:
-      #     root: .
-      #     paths:
-      #       - '**/dist'
+      - run:
+          name: Build All Packages
+          command: |
+            pnpm run build:packages
+      - persist_to_workspace:
+          root: .
+          paths:
+            - '**/dist'
+            - '**/.turbo'
       - save_cache:
           name: Save PNPM Cache
           key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
@@ -72,6 +72,17 @@ jobs:
           name: Lint Styles
           command: |
             pnpm run styles:lint
+  storybook-build:
+    docker:
+      - image: node:20
+    steps:
+      - setup-deps
+      - attach_workspace:
+          at: .
+      - run:
+          name: Build Storybook
+          command: |
+            pnpm --filter @jrkienle/ui run storybook:build
   test:
     docker:
       - image: node:20

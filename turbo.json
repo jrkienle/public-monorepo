@@ -9,6 +9,10 @@
     "clean": {
       "cache": false
     },
+    "dev": {
+      "cache": false,
+      "dependsOn": ["^build"]
+    },
     "lint": {
       "cache": true,
       "dependsOn": ["^build"],

@@ -23,6 +23,8 @@ module.exports = {
         devDependencies: ['**/*.test.ts'],
       },
     ],
+    // Sometimes single exports lead to a cleaner codebase
+    'import/prefer-default-export': 'off',
     // This allows us to use "export { default } from 'someFile';"" which reduces boilerplate
     'no-restricted-exports': 'off',
   },
