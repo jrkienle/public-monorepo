@@ -1,3 +1,5 @@
+import '@jrkienle/ui/ui.css';
+
 import type { Metadata } from 'next';
 import type { ReactNode } from 'react';
 
