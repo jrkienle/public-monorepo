@@ -32,8 +32,7 @@ jobs:
       - persist_to_workspace:
           root: .
           paths:
-            - '**/dist'
-            - '**/.turbo'
+            - 'packages/ui/dist'
       - save_cache:
           name: Save PNPM Cache
           key: pnpm-packages-{{ checksum "pnpm-lock.yaml" }}
