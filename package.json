@@ -9,6 +9,7 @@
     "build": "turbo build",
     "build:packages": "turbo run build --filter=./packages/*",
     "clean": "turbo clean",
+    "dev:hm": "turbo run dev --filter=./apps/home-management...",
     "lint": "turbo lint",
     "postinstall": "manypkg check && pnpm exec simple-git-hooks",
     "reset": "turbo reset && rm -r node_modules && pnpm i",
