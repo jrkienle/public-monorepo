@@ -1,8 +1,17 @@
 # Dependencies
 node_modules
 
+# Docker Compose Data
+docker-data
+
+# Environment
+.env
+
 # ESLint Output
 .eslintcache
+
+# Generated Code
+generated
 
 # Next.js
 .next

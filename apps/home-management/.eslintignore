@@ -1,3 +1,5 @@
+src/generated
+
 .eslintrc.cjs
 next.config.js
 postcss.config.cjs

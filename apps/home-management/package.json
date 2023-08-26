@@ -7,16 +7,25 @@
   "author": "James Kienle (https://www.jameskienle.com)",
   "license": "MIT",
   "scripts": {
-    "build": "next build",
-    "clean": "rm -r .next & rm -r .turbo & rm -r coverage & rm -r test-results & rm .eslintcache & rm next.env.d.ts",
+    "build": "pnpm run generate:prisma && next build",
+    "clean": "rm -r .next & rm -r .turbo & rm -r coverage & rm -r test-results & rm .eslintcache & rm next.env.d.ts & rm -r src/generated",
     "dev": "next dev",
-    "lint": "eslint --cache ./src",
+    "generate:prisma": "prisma generate",
+    "lint": "pnpm run generate:prisma && eslint --cache ./src",
     "reset": "rm -r node_modules",
     "start": "next start",
-    "test": "vitest"
+    "test": "pnpm run generate:prisma && vitest"
   },
   "dependencies": {
+    "@graphql-yoga/plugin-disable-introspection": "^1.0.4",
     "@jrkienle/ui": "workspace:^",
+    "@pothos/core": "^3.33.0",
+    "@pothos/plugin-prisma": "^3.57.0",
+    "@pothos/plugin-prisma-utils": "^0.11.0",
+    "@prisma/client": "5.2.0",
+    "graphql": "^16.8.0",
+    "graphql-scalars": "^1.22.2",
+    "graphql-yoga": "^4.0.4",
     "next": "^13.4.19",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -32,6 +41,7 @@
     "eslint": "^8.47.0",
     "jsdom": "^22.1.0",
     "prettier": "3.0.2",
+    "prisma": "^5.2.0",
     "vitest": "^0.34.2"
   }
 }

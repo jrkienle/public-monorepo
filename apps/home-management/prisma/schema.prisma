@@ -1,0 +1,48 @@
+generator client {
+  output   = "../src/generated/prisma"
+  provider = "prisma-client-js"
+}
+
+generator pothos {
+  provider = "prisma-pothos-types"
+  clientOutput = "../prisma"
+  output = "../src/generated/pothos/index.ts"
+  prismaUtils = true
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum PropertyStatus {
+  LEASED
+  LEASE_BROKEN
+  MORTGAGED
+  OTHER
+  OWNED
+  SOLD
+}
+
+model Address {
+  id String @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  city String
+  country String
+  lines String[]
+  property Property @relation(fields: [propertyId], references: [id])
+  propertyId String @unique
+  state String
+  zip String
+}
+
+model Property {
+  id String @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  address Address?
+  description String?
+  name String @unique
+  pic String?
+}

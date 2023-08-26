@@ -41,6 +41,9 @@ jobs:
   build-apps-and-servers:
     docker:
       - image: node:20
+    # Prisma requires that a dv env var be set, so we're giving it a fake one
+    environment:
+      DATABASE_URL: 'postgresql://postgres:postgres@localhost:5432/home-management?schema=public'
     steps:
       - setup-deps
       - attach_workspace:
@@ -52,6 +55,9 @@ jobs:
   lint:
     docker:
       - image: node:20
+    # Prisma requires that a dv env var be set, so we're giving it a fake one
+    environment:
+      DATABASE_URL: 'postgresql://postgres:postgres@localhost:5432/home-management?schema=public'
     steps:
       - setup-deps
       - attach_workspace:
@@ -85,6 +91,9 @@ jobs:
   test:
     docker:
       - image: node:20
+    # Prisma requires that a dv env var be set, so we're giving it a fake one
+    environment:
+      DATABASE_URL: 'postgresql://postgres:postgres@localhost:5432/home-management?schema=public'
     steps:
       - setup-deps
       - attach_workspace:
