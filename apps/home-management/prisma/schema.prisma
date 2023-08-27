@@ -24,6 +24,13 @@ enum PropertyStatus {
   SOLD
 }
 
+// We don't need anything remotely complicated here, 3 user roles will do
+enum UserRole {
+  OWNER
+  UNVERIFIED_GUEST
+  VERIFIED_GUEST
+}
+
 model Address {
   id String @id @default(cuid())
   createdAt DateTime @default(now())
@@ -45,4 +52,13 @@ model Property {
   description String?
   name String @unique
   pic String?
+  users User[]
+}
+
+model User {
+  id String @id
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  properties Property[]
+  role UserRole
 }

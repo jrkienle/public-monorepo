@@ -11,6 +11,8 @@ import { prisma } from './db';
 
 const builder = new SchemaBuilder<{
   AuthScopes: {
+    isGuestAtProperty: string;
+    isOwner: boolean;
     loggedIn: boolean;
     loggedOut: boolean;
   };
@@ -24,6 +26,9 @@ const builder = new SchemaBuilder<{
   PrismaTypes: PrismaTypes;
 }>({
   authScopes: (context) => ({
+    isGuestAtProperty: (propertyId) =>
+      context.role === 'VERIFIED_GUEST' && context.properties.includes(propertyId),
+    isOwner: context.role === 'OWNER',
     loggedIn: context.loggedIn,
     loggedOut: !context.loggedIn,
   }),

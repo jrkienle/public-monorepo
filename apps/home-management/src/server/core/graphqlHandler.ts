@@ -4,15 +4,33 @@ import { createYoga } from 'graphql-yoga';
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
+import { prisma } from 'server/core';
 import type { AuthContext } from './core.types';
 import schema from './graphqlSchema';
 
 async function graphqlHandler(request: NextRequest) {
   const yoga = createYoga({
-    context: (): AuthContext => {
+    context: async (): Promise<AuthContext> => {
       const { userId } = getAuth(request);
+
+      if (!userId) {
+        return {
+          loggedIn: false,
+          properties: [],
+          role: null,
+          userId,
+        };
+      }
+
+      const user = await prisma.user.findFirstOrThrow({
+        where: { id: userId },
+        include: { properties: { select: { id: true } } },
+      });
+
       return {
-        loggedIn: !!userId,
+        loggedIn: true,
+        properties: user.properties.map(({ id }) => id),
+        role: user.role,
         userId,
       };
     },
