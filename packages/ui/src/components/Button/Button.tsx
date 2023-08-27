@@ -22,7 +22,7 @@ const buttonStyles = tv({
     color: {
       primary: 'bg-orange-500 text-white hover:bg-orange-400 active:bg-orange-600',
       secondary:
-        'bg-gray-900 hover:bg-gray-800 active:bg-gray-950 dark:bg-gray-100 dark:hover:bg-gray-50 dark:active:bg-gray-200',
+        'bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-950 dark:bg-gray-100 dark:text-slate-900 dark:hover:bg-gray-50 dark:active:bg-gray-200 text',
     },
     isDisabled: {
       true: 'bg-gray-400 cursor-not-allowed hover:bg-gray-400 active:bg-gray-400 shadow-none hover:shadow-none',
