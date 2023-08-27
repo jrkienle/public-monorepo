@@ -1,10 +1,10 @@
 import { createElement } from 'react';
-import type { ReactNode } from 'react';
+import type { HTMLAttributes, ReactNode } from 'react';
 
 import { foreground } from 'styles';
 import { tv } from 'utils';
 
-const textStyles = tv({
+export const textStyles = tv({
   variants: {
     color: {
       default: foreground,
@@ -23,7 +23,7 @@ const textStyles = tv({
   },
 });
 
-export interface TextProps extends Partial<Omit<HTMLElement, 'children'>> {
+export interface TextProps extends HTMLAttributes<HTMLElement> {
   children: ReactNode;
   /** Controls the font color */
   color?: 'default' | 'primary';

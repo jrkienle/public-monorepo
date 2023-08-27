@@ -195,6 +195,9 @@ importers:
       '@react-aria/button':
         specifier: ^3.8.1
         version: 3.8.1(react@18.2.0)
+      '@react-aria/textfield':
+        specifier: ^3.11.0
+        version: 3.11.0(react@18.2.0)
       tailwind-merge:
         specifier: ^1.14.0
         version: 1.14.0
@@ -3878,6 +3881,21 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-aria/label@3.6.1(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-hR7Qx6q0BjOJi/YG5pI13QTQA/2oaXMYdzDCx4Faz8qaY9CCsLjFpo5pUUwRhNieGmf/nHJq6jiYbJqfaONuTQ==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/utils': 3.19.0(react@18.2.0)
+      '@react-types/label': 3.7.5(react@18.2.0)
+      '@react-types/shared': 3.19.0(react@18.2.0)
+      '@swc/helpers': 0.5.1
+      react: 18.2.0
+    dev: false
+
   /@react-aria/ssr@3.7.1(react@18.2.0):
     resolution:
       {
@@ -3887,6 +3905,23 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
+      '@swc/helpers': 0.5.1
+      react: 18.2.0
+    dev: false
+
+  /@react-aria/textfield@3.11.0(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-07pHRuWeLmsmciWL8y9azUwcBYi1IBmOT9KxBgLdLK5NLejd7q2uqd0WEEgZkOc48i2KEtMDgBslc4hA+cmHow==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-aria/focus': 3.14.0(react@18.2.0)
+      '@react-aria/label': 3.6.1(react@18.2.0)
+      '@react-aria/utils': 3.19.0(react@18.2.0)
+      '@react-types/shared': 3.19.0(react@18.2.0)
+      '@react-types/textfield': 3.7.3(react@18.2.0)
       '@swc/helpers': 0.5.1
       react: 18.2.0
     dev: false
@@ -3958,6 +3993,18 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@react-types/label@3.7.5(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-iNO5T1UYK7FPF23cwRLQJ4zth2rqoJWbz27Wikwt8Cw8VbVVzfLBPUBZoUyeBVZ0/zzTvEgZUW75OrmKb4gqhw==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-types/shared': 3.19.0(react@18.2.0)
+      react: 18.2.0
+    dev: false
+
   /@react-types/shared@3.19.0(react@18.2.0):
     resolution:
       {
@@ -3966,6 +4013,18 @@ packages:
     peerDependencies:
       react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
     dependencies:
+      react: 18.2.0
+    dev: false
+
+  /@react-types/textfield@3.7.3(react@18.2.0):
+    resolution:
+      {
+        integrity: sha512-M2u9NK3iqQEmTp4G1Dk36pCleyH/w1n+N52u5n0fRlxvucY/Od8W1zvk3w9uqJLFHSlzleHsfSvkaETDJn7FYw==,
+      }
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0-rc.1 || ^18.0.0
+    dependencies:
+      '@react-types/shared': 3.19.0(react@18.2.0)
       react: 18.2.0
     dev: false
 

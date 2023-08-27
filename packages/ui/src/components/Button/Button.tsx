@@ -11,7 +11,7 @@ import { tv } from 'utils';
 
 const buttonStyles = tv({
   base: [
-    'cursor-pointer flex font-body items-center rounded-md shadow hover:shadow-md transition',
+    'border border-solid cursor-pointer flex font-body items-center rounded-md shadow hover:shadow-md transition',
     outlineFocused,
   ],
   defaultVariants: {
@@ -20,19 +20,20 @@ const buttonStyles = tv({
   },
   variants: {
     color: {
-      primary: 'bg-orange-500 text-white hover:bg-orange-400 active:bg-orange-600',
+      primary:
+        'bg-orange-500 border-orange-400 text-white hover:bg-orange-400 hover:border-orange-300',
       secondary:
-        'bg-gray-900 text-white hover:bg-gray-800 active:bg-gray-950 dark:bg-gray-100 dark:text-slate-900 dark:hover:bg-gray-50 dark:active:bg-gray-200 text',
+        'bg-white border-zinc-100 hover:border-zinc-200 text-zinc-900 dark:bg-zinc-800 dark:border-zinc-600 dark:text-white dark:hover:border-zinc-500',
     },
     isDisabled: {
-      true: 'bg-gray-400 cursor-not-allowed hover:bg-gray-400 active:bg-gray-400 shadow-none hover:shadow-none',
+      true: 'bg-zinc-400 border-zinc-400 hover:border-zinc-400 cursor-not-allowed shadow-none hover:shadow-none',
     },
     isLoading: {
       true: 'cursor-wait hover:shadow',
     },
     size: {
       sm: 'px-16 py-8 text-body-sm',
-      md: 'px-16 py-8 text-body-md',
+      md: 'h-40 px-16 py-8 text-body-md',
       lg: 'px-24 py-16 text-body-lg',
     },
   },

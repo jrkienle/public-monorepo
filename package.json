@@ -15,7 +15,7 @@
     "reset": "turbo reset && rm -r node_modules && pnpm i",
     "styles:format": "prettier --ignore-unknown --write .",
     "styles:lint": "prettier --ignore-unknown --check .",
-    "test": "turbo test"
+    "test": "turbo test -- run"
   },
   "engines": {
     "node": ">=20.5.1",
