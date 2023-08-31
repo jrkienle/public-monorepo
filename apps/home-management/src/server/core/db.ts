@@ -1,6 +1,7 @@
+import pagination from 'prisma-extension-pagination';
 import { PrismaClient } from 'generated/prisma';
 
-const prismaClientSingleton = () => new PrismaClient();
+const prismaClientSingleton = () => new PrismaClient().$extends(pagination());
 
 type PrismaClientSingleton = ReturnType<typeof prismaClientSingleton>;
 

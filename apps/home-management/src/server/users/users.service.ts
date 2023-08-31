@@ -1,21 +1,7 @@
 import { prisma } from 'server/core';
+import type { Prisma } from 'generated/prisma';
 
-export const getPropertiesAndRole = async (userId?: string) => {
-  if (!userId) {
-    return {
-      properties: [],
-      role: null,
-    };
-  }
-
-  // I'm getting extra properties here, thus why I'm not calling getUserById
-  const user = await prisma.user.findFirstOrThrow({
-    where: { id: userId },
-    include: { properties: { select: { id: true } } },
-  });
-
-  return {
-    properties: user.properties.map(({ id }) => id),
-    role: user.role,
-  };
-};
+export const getUserById = (
+  id: string,
+  args: Omit<Prisma.UserFindFirstOrThrowArgs, 'where'> = {}
+) => prisma.user.findFirstOrThrow({ where: { id }, ...args });

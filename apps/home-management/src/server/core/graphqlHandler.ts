@@ -18,14 +18,25 @@ async function graphqlHandler(request: NextRequest) {
           loggedIn: false,
           properties: [],
           role: null,
-          userId,
+          userId: '',
         };
       }
 
-      const user = await prisma.user.findFirstOrThrow({
+      let user = await prisma.user.findFirst({
         where: { id: userId },
         include: { properties: { select: { id: true } } },
       });
+
+      // If there's no user record in the database for that ID, create one
+      if (!user) {
+        user = await prisma.user.create({
+          data: {
+            id: userId,
+            role: 'UNVERIFIED_GUEST',
+          },
+          include: { properties: { select: { id: true } } },
+        });
+      }
 
       return {
         loggedIn: true,

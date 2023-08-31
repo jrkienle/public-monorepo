@@ -19,5 +19,8 @@
       "pattern": "services/*",
       "changeProcessCWD": true
     }
-  ]
+  ],
+  "[prisma]": {
+    "editor.defaultFormatter": "Prisma.prisma"
+  }
 }

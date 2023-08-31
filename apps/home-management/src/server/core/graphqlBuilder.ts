@@ -2,6 +2,7 @@ import SchemaBuilder from '@pothos/core';
 import ScopeAuthPlugin from '@pothos/plugin-scope-auth';
 import PrismaPlugin from '@pothos/plugin-prisma';
 import PrismaUtils from '@pothos/plugin-prisma-utils';
+import { GraphQLError } from 'graphql';
 import { DateTimeResolver } from 'graphql-scalars';
 
 import type PrismaTypes from 'generated/pothos';
@@ -37,9 +38,16 @@ const builder = new SchemaBuilder<{
     client: prisma,
     onUnusedQuery: process.env.NODE_ENV === 'production' ? null : 'warn',
   },
+  scopeAuthOptions: {
+    treatErrorsAsUnauthorized: true,
+    unauthorizedError: () => new GraphQLError('Unauthorized'),
+  },
 });
 
+// TODO: Should we split scalars into their own file?
 builder.addScalarType('DateTime', DateTimeResolver, {});
+
+builder.mutationType({});
 builder.queryType({});
 
 export default builder;
