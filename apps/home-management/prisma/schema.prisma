@@ -4,10 +4,10 @@ generator client {
 }
 
 generator pothos {
-  provider = "prisma-pothos-types"
+  provider     = "prisma-pothos-types"
   clientOutput = "../prisma"
-  output = "../src/generated/pothos/index.ts"
-  prismaUtils = true
+  output       = "../src/generated/pothos/index.ts"
+  prismaUtils  = true
 }
 
 datasource db {
@@ -24,41 +24,98 @@ enum PropertyStatus {
   SOLD
 }
 
-// We don't need anything remotely complicated here, 3 user roles will do
+//
+// Core
+//
+
 enum UserRole {
   OWNER
   UNVERIFIED_GUEST
   VERIFIED_GUEST
 }
 
+model User {
+  id         String     @id
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  properties Property[]
+  role       UserRole
+}
+
+//
+// Smarthome
+//
+
 model Address {
-  id String @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  city String
-  country String
-  lines String[]
-  property Property @relation(fields: [propertyId], references: [id])
-  propertyId String @unique
-  state String
-  zip String
+  id         String   @id @default(cuid())
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  city       String
+  country    String
+  lines      String[]
+  property   Property @relation(fields: [propertyId], references: [id])
+  propertyId String   @unique
+  state      String
+  zip        String
 }
 
 model Property {
-  id String @id @default(cuid())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  address Address?
+  id          String   @id @default(cuid())
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  address     Address?
   description String?
-  name String @unique
-  pic String?
-  users User[]
+  name        String   @unique
+  pic         String?
+  users       User[]
 }
 
-model User {
-  id String @id
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  properties Property[]
-  role UserRole
+// Banking
+
+enum BankingAccountType {
+  BANK_CHECKING
+  BANK_SAVINGS
+  INVESTMENT_401K
+  INVESTMENT_CRYPTO
+  INVESTMENT_IRA
+  INVESTMENT_STOCKS
+  LOAN_AUTO
+  LOAN_CREDIT_CARD
+  LOAN_MORTGAGE
+  LOAN_STUDENT
+  STUDENT_LOAN
+}
+
+model BankingAccount {
+  id           String               @id @default(cuid())
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
+  description  String?
+  name         String
+  pic          String?
+  transactions BankingTransaction[]
+  type         BankingAccountType
+}
+
+model BankingCategory {
+  id           String               @id @default(cuid())
+  createdAt    DateTime             @default(now())
+  updatedAt    DateTime             @updatedAt
+  description  String?
+  name         String
+  transactions BankingTransaction[]
+}
+
+model BankingTransaction {
+  id          String           @id @default(cuid())
+  createdAt   DateTime         @default(now())
+  updatedAt   DateTime         @updatedAt
+  account     BankingAccount?  @relation(fields: [accountId], references: [id])
+  accountId   String?
+  amount      Float
+  category    BankingCategory? @relation(fields: [categoryId], references: [id])
+  categoryId  String?
+  date        DateTime
+  description String?
+  name        String
 }
